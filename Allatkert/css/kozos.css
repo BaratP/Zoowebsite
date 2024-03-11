@@ -1,0 +1,8 @@
+html {
+    background-image: url("/media/images.jpg");
+    background-repeat: no-repeat;
+    background-size: 43%;
+    background-position-x: 50%;
+    background-color: black;
+    color: white;
+}
