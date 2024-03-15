@@ -1,12 +1,14 @@
+body{
+    margin: 0;
+}
 nav {
-    background-color: #333; /* Dark background for the navbar */
+    background-color: rgba(147,213,81); /* Dark background for the navbar */
     color: #fff; /* Light text color */
     position: fixed;
     top: 0; /* Align to the top */
     width: 100%; /* Navbar width to cover the screen width */
     z-index: 1000; /* Ensure navbar is above other content */
 }
-
 nav ul {
     list-style-type: none; /* Remove default list styling */
     padding: 0;
@@ -20,18 +22,27 @@ nav ul li {
     padding: 15px 20px; /* Add some padding around each link */
 }
 
+nav ul li:hover{
+    background: linear-gradient(to bottom, rgb(130, 189, 72), rgb(146, 212, 81));
+}
+
 nav a {
     color: #fff; /* Light color for links */
     text-decoration: none; /* Remove underline from links */
     font-weight: bold; /* Optional: makes the links bold */
+    padding: 15px 20px; /* Add some padding around each link */
 }
 
 /* Optional: change the link color on hover */
 nav a:hover {
-    color: #ddd; /* Lighter shade on hover */
+    color: #eeeeee; /* Lighter shade on hover */
 }
 
 /* Optional: Add a style for the current/active page link */
 .nav-active {
     border-bottom: 2px solid #fff; /* Adds a bottom border to the active link */
+}
+
+body:nth-child(2){
+    margin-top: 30px;
 }
