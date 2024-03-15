@@ -1,0 +1,31 @@
+article {
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+article div{
+    flex: 1;
+}
+
+article div p{
+    padding-top: 7%;
+}
+
+.szoveg {
+    font-family: sans-serif;
+    font-size: large;
+    text-align: center;
+}
+
+.row {
+    margin: 0 15%;
+}
+
+.articleImg {
+    width: 100%;
+}
+
+hr {
+    width: 60%;
+}
