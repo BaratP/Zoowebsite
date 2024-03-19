@@ -3,18 +3,41 @@ img {
     height: 50%;
     transform: scale(300%,210%);
 }
+#cim {
+    background: #f7974c;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;
+    padding: 0 5%;
+    flex: 1;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in , box-shadow 0.3s ease-in-out;
+    width: 30%;
+    margin: 3% 30% 0;
+    rotate: 3deg;
+    color: #4b2700;
+}
+#cim:hover{
+    transform: scale(105%);
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.65);
+}
+h1 {
+    font-size: 300%;
+    font-family: cursive;
+}
 .flex div{
     background: #f7974c;
     display: flex;
     justify-content: center; /* Horizontally center */
     align-items: center;
-    padding: 5% 5% 5% 5%;
+    padding: 5%;
     flex: 1;
     box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease-in , box-shadow 0.3s ease-in-out;
+    transition: transform 0.3s ease-in , box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 .flex div:hover {
     box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.65);
+    background-color: rgba(147,213,81,0.9);
 }
 .flex div a {
     width: 100%;
@@ -61,25 +84,4 @@ p {
 
 hr {
     width: 60%;
-}
-
-.split {
-    width: 90%;
-    display: flex;
-    flex-flow: row;
-
-}
-.flow {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-.flow div a img {
-    width: 70%;
-    border-radius: 100%;
-    border-width: 20px;
-    border-style: solid;
-    border-color: #f7974c;
 }
