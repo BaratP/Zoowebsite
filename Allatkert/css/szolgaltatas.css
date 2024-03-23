@@ -20,6 +20,7 @@ article div{
     align-items: center;
     padding: 5% 5% 5% 5%;
     flex: 1;
+    width: 100%;
 }
 
 .szoveg {
@@ -82,4 +83,6 @@ article:nth-of-type(3) div:first-of-type{
 }
 article:nth-of-type(3) div:first-of-type p{
     padding: 20%;
+}
+body{
 }

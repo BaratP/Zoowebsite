@@ -17,5 +17,32 @@
         <li><a href="register.html" style="text-decoration: underline">Regisztráció</a></li>
     </ul>
 </nav>
+<div class="flex">
+<form method="POST" action="login.html">
+    <div>
+        <div class="bejelentkezes">
+            <label><b>Felhasználó név</b></label>
+            <input type="text" placeholder="Felhasználó név" required>
+            <label><b>Email Cím</b></label>
+            <input type="email" placeholder="valaki@gmail.com" required>
+            <label><b>Jelszó</b></label>
+            <input type="password" placeholder="Jelszó" required>
+            <label><b>Jelszó megerősítése</b></label>
+            <input type="password" placeholder="Jelszó" required>
+            <label><b>Telefonszám</b></label>
+            <input type="tel" placeholder="06309999999" required>
+            <label><b>Felhasználói feltételek elfogadása</b></label>
+            <input  type="checkbox" required>
+            <label><b>Mennyire tetszik az oldal?</b></label>
+            <input type="range" value="100">
+            <br><br>
+            <div class="gombok" style="margin-bottom: 20px">
+                <button>Regisztrálás</button>
+                <button type="reset">Visszaállítás</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
 </body>
 </html>
