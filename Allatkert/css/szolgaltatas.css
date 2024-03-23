@@ -1,7 +1,7 @@
 #hatter{
     top: 0;
     left: 0;
-    width: 100%;
+    width: 98.5%;
     height: 100%;
     object-fit: cover;
     position: fixed;
@@ -38,7 +38,26 @@ article div{
 #hely {
     padding: 10%;
 }
-
+#cim {
+    font-size: 100%;
+    font-family: cursive;
+    background: #f7974c;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;
+    padding: 0 5%;
+    flex: 1;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in , box-shadow 0.3s ease-in-out;
+    width: 30%;
+    margin: 3% 30% 0;
+    rotate: -3deg;
+    color: #4b2700;
+}
+#cim:hover{
+    transform: scale(105%);
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.65);
+}
 .doboz{
     display: flex;
     transform: rotate(-3deg);
@@ -83,6 +102,4 @@ article:nth-of-type(3) div:first-of-type{
 }
 article:nth-of-type(3) div:first-of-type p{
     padding: 20%;
-}
-body{
 }
