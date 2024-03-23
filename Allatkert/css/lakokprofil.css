@@ -50,6 +50,7 @@
     background-color: #e5d4bc;
     padding: 2%;
     box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
 body {
@@ -58,4 +59,7 @@ body {
 
 .first-word {
         font-weight: bold;
+}
+video {
+    width: 100%;
 }
