@@ -6,7 +6,7 @@
 .flow {
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
     margin: 0 10%;
@@ -46,7 +46,16 @@
     border-color: rgba(147,213,81,0.9);
 }
 .lap {
-    margin-top: 5%;
-    background-color: #f5e8d6;
+    margin: 5% 0;
+    background-color: #e5d4bc;
     padding: 2%;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+body {
+    background-color: #f5e8d6;
+}
+
+.first-word {
+        font-weight: bold;
 }
