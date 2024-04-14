@@ -4,26 +4,33 @@ body{
 nav {
     font-size: 100%;
     background: linear-gradient(to bottom, rgb(162, 156, 149), rgb(241, 228, 210)); /* Dark background for the navbar */
-    color: #fff; /* Light text color */
+    color: #fff;
     position: fixed;
-    top: 0; /* Align to the top */
-    width: 100%; /* Navbar width to cover the screen width */
-    z-index: 1000; /* Ensure navbar is above other content */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 nav ul {
-    list-style-type: none; /* Remove default list styling */
+    list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Display list items in a row */
-    justify-content: space-around; /* Even spacing between items */
-    align-items: center; /* Vertically center items */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 nav ul li {
-    padding: 1% 2%; /* Add some padding around each link */
+    padding: 1% 2%;
     display: flex;
 }
-
+li:nth-of-type(1):hover img{
+    content: url("../media/jegyarak2.png");
+    width: 20%;
+}
+li:nth-of-type(1) img{
+    content: url("../media/jegyarak.png");
+    width: 20%;
+}
 li:nth-of-type(2):hover img{
     content: url("../media/jegyarak2.png");
     width: 20%;
@@ -66,20 +73,20 @@ li:nth-of-type(6):hover img{
 }
 
 nav a {
-    color: #fff; /* Light color for links */
-    text-decoration: none; /* Remove underline from links */
-    font-weight: bold; /* Optional: makes the links bold */
-    padding: 15px 20px; /* Add some padding around each link */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 20px;
 }
 
-/* Optional: change the link color on hover */
+
 nav a:hover {
-    color: #eeeeee; /* Lighter shade on hover */
+    color: #eeeeee;
 }
 
-/* Optional: Add a style for the current/active page link */
+
 .nav-active {
-    border-bottom: 2px solid #fff; /* Adds a bottom border to the active link */
+    border-bottom: 2px solid #fff;
 }
 
 body:nth-child(2){

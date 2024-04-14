@@ -16,7 +16,7 @@ article {
 
 article div{
     display: flex;
-    justify-content: center; /* Horizontally center */
+    justify-content: center;
     align-items: center;
     padding: 5% 5% 5% 5%;
     flex: 1;
@@ -43,7 +43,7 @@ article div{
     font-family: cursive;
     background: #f7974c;
     display: flex;
-    justify-content: center; /* Horizontally center */
+    justify-content: center;
     align-items: center;
     padding: 0 5%;
     flex: 1;
@@ -51,11 +51,11 @@ article div{
     transition: transform 0.3s ease-in , box-shadow 0.3s ease-in-out;
     width: 30%;
     margin: 3% 30% 0;
-    rotate: -3deg;
+    transform: rotate(-3deg);
     color: #4b2700;
 }
 #cim:hover{
-    transform: scale(105%);
+    transform: scale(1.05);
     box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.65);
 }
 .doboz{
@@ -73,7 +73,7 @@ article div{
     transition: transform 0.3s ease-in , box-shadow 0.3s ease-in-out;
 }
 .kozepreRakottKep:hover {
-    transform: scale(110%);
+    transform: scale(1.1);
     box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.65);
 }
 
@@ -81,7 +81,7 @@ article div{
 .flexbox{
     display: flex;
     align-items: center;
-    justify-content: center; /* Horizontally center */
+    justify-content: center;
 }
 article:last-of-type div:first-of-type{
     background-image: url("../media/szolgaltatas/rm141-nunny-02b.jpg");
