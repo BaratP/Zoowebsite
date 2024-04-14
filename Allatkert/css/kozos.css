@@ -1,0 +1,94 @@
+body{
+    margin: 0;
+}
+nav {
+    font-size: 100%;
+    background: linear-gradient(to bottom, rgb(162, 156, 149), rgb(241, 228, 210)); /* Dark background for the navbar */
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li {
+    padding: 1% 2%;
+    display: flex;
+}
+li:nth-of-type(1):hover img{
+    content: url("../media/jegyarak2.png");
+    width: 20%;
+}
+li:nth-of-type(1) img{
+    content: url("../media/jegyarak.png");
+    width: 20%;
+}
+li:nth-of-type(2):hover img{
+    content: url("../media/jegyarak2.png");
+    width: 20%;
+}
+li:nth-of-type(2) img{
+    content: url("../media/jegyarak.png");
+    width: 20%;
+}
+li:nth-of-type(3) img{
+    content: url("../media/szolgaltatasok.png");
+    width: 20%;
+}
+li:nth-of-type(3):hover img{
+    content: url("../media/szolgaltatasok2.png");
+    width: 20%;
+}
+li:nth-of-type(4) img{
+    content: url("../media/sziv.png");
+    width: 20%;
+}
+li:nth-of-type(4):hover img{
+    content: url("../media/sziv2.png");
+    width: 20%;
+}
+li:nth-of-type(5) img{
+    content: url("../media/zaszlo.png");
+    width: 20%;
+}
+li:nth-of-type(5):hover img{
+    content: url("../media/zaszlo2.png");
+    width: 20%;
+}
+li:nth-of-type(6) img{
+    content: url("../media/zaszlo.png");
+    width: 20%;
+}
+li:nth-of-type(6):hover img{
+    content: url("../media/zaszlo2.png");
+    width: 20%;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 20px;
+}
+
+
+nav a:hover {
+    color: #eeeeee;
+}
+
+
+.nav-active {
+    border-bottom: 2px solid #fff;
+}
+
+body:nth-child(2){
+    margin-top: 30px;
+}

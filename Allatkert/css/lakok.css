@@ -1,0 +1,91 @@
+div a img {
+    width: 50%;
+    height: 50%;
+    transform: scale(3,2.1);
+}
+#cim {
+    background: #f7974c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+    flex: 1;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in , box-shadow 0.3s ease-in-out;
+    width: 30%;
+    margin: 3% 30% 0;
+    transform: rotate(3deg);
+    color: #4b2700;
+}
+#cim:hover{
+    transform: scale(1.05);
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.65);
+}
+h1 {
+    font-size: 300%;
+    font-family: cursive;
+}
+.flex div{
+    background: #f7974c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    flex: 1;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in , box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.flex div:hover {
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.65);
+    background-color: rgba(147,213,81,0.9);
+}
+.flex div a {
+    width: 100%;
+    color: inherit;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+p {
+    flex: 1;
+}
+.flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex div:nth-of-type(1) {
+    transform: rotate(-3deg) scale(0.8,1);
+}
+.flex div:nth-of-type(2) {
+    transform: rotate(2deg) scale(0.8,1);
+}
+.flex div:nth-of-type(3) {
+    transform: rotate(-1deg) scale(0.8,1);
+}
+.flex div:nth-of-type(4) {
+    transform: rotate(5deg) scale(0.8,1);
+}
+
+.flex div:nth-of-type(1):hover {
+    transform: rotate(-3deg) scale(0.9,1.1);
+}
+.flex div:nth-of-type(2):hover {
+    transform: rotate(2deg) scale(0.9,1.1);
+}
+.flex div:nth-of-type(3):hover {
+    transform: rotate(-1deg) scale(0.9,1.1);
+}
+.flex div:nth-of-type(4):hover {
+    transform: rotate(5deg) scale(0.9,1.1);
+}
+
+hr {
+    width: 60%;
+}
+
+body {
+    background-color: #f5e8d6;
+}
