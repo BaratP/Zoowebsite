@@ -48,6 +48,8 @@ if(isset($_POST['decrease'])) {
     modifyQuantity($_POST['tipus'], -1); // Csökkentjük a mennyiséget
 } elseif(isset($_POST['increase'])) {
     modifyQuantity($_POST['tipus'], 1); // Növeljük a mennyiséget
+} elseif(isset($_POST['remove'])) { // Új eset: Ha a "remove" gomb lett megnyomva
+    removeFromCart($_POST['tipus']); // Hívjuk a removeFromCart függvényt
 } elseif(isset($_POST['clear_cart'])) {
     clearCart(); // Töröljük a kosár tartalmát
     header("Location: jegyek.php"); // Átirányítás a jegyek oldalra
@@ -55,6 +57,20 @@ if(isset($_POST['decrease'])) {
 }
 
 mergeDuplicateTickets();
+
+// Új függvény a jegy eltávolításához
+function removeFromCart($tipus) {
+    if(isset($_SESSION['kosar']) && !empty($_SESSION['kosar'])) {
+        foreach($_SESSION['kosar'] as $key => $jegy) {
+            if($jegy['tipus'] === $tipus) {
+                unset($_SESSION['kosar'][$key]); // Töröljük az elemet a kosárból
+                break; // Kilépünk a ciklusból, mert megtaláltuk az elemet
+            }
+        }
+        // Kosár tömb frissítése
+        $_SESSION['kosar'] = array_values($_SESSION['kosar']);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,6 +126,12 @@ mergeDuplicateTickets();
             echo "<button type='submit' name='increase'>+</button>";
             echo "</form>";
             echo "</td>";
+            echo "<td>"; // Új oszlop kezdete
+            echo "<form method='post'>";
+            echo "<input type='hidden' name='tipus' value='{$jegy['tipus']}'>";
+            echo "<button type='submit' name='remove'>Törlés</button>"; // Törlés gomb
+            echo "</form>";
+            echo "</td>"; // Új oszlop vége
             echo "</tr>";
         }
     } else {
