@@ -1,11 +1,21 @@
 <?php
 session_start();
+
 function addToCart($jegyTipus, $ar) {
     $_SESSION['kosar'][] = array('tipus' => $jegyTipus, 'ar' => $ar, 'mennyiseg' => 1);
 }
 
+function deleteFromCart($index) {
+    unset($_SESSION['kosar'][$index]);
+}
+
 if (isset($_POST['submit'])) {
     addToCart($_POST['jegyTipus'], $_POST['ar']);
+}
+
+if (isset($_POST['delete']) && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['username'] === "ADMIN") {
+    $index = $_POST['delete'];
+    deleteFromCart($index);
 }
 
 ?>
@@ -39,10 +49,7 @@ if (isset($_POST['submit'])) {
 <div id="cim"><div><h1>Jegyárak</h1></div></div>
 <br><br><br>
 <div class="szoveg" id="kiemel">Felhívjuk kedves látogatóink figyelmét, hogy a belépőjegy egyszeri belépésre jogosít!</div>
-<div class="szoveg">Érvényes 2024. január 1-től
-</div>
-
-
+<div class="szoveg">Érvényes 2024. január 1-től</div>
 <hr>
 <br><br>
 
@@ -50,9 +57,13 @@ if (isset($_POST['submit'])) {
     <tr>
         <th>Egyéni</th>
         <th>Ár</th>
-        <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) { ?>
-            <th>Kosár</th>
-        <?php } ?>
+        <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+            if ($_SESSION['username'] === "ADMIN") { ?>
+                <th>Törlés</th>
+            <?php } else { ?>
+                <th>Kosár</th>
+            <?php }
+        } ?>
     </tr>
     <?php
     // Jegyek típusainak és árainak listája
@@ -66,18 +77,27 @@ if (isset($_POST['submit'])) {
     );
 
     // Jegyek sorainak generálása
-    foreach ($jegyek as $jegy) {
+    foreach ($jegyek as $index => $jegy) {
         echo '<tr>';
         echo '<td>' . $jegy['tipus'] . ':</td>';
         echo '<td>' . $jegy['ar'] . ' Ft</td>';
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-            echo '<td>';
-            echo '<form method="post">';
-            echo '<input type="hidden" name="jegyTipus" value="' . $jegy['tipus'] . '">';
-            echo '<input type="hidden" name="ar" value="' . $jegy['ar'] . '">';
-            echo '<button type="submit" name="submit">Kosárba</button>';
-            echo '</form>';
-            echo '</td>';
+            if ($_SESSION['username'] === "ADMIN") {
+                echo '<td>';
+                echo '<form method="post">';
+                echo '<input type="hidden" name="delete" value="' . $index . '">';
+                echo '<button type="submit">Törlés</button>';
+                echo '</form>';
+                echo '</td>';
+            } else {
+                echo '<td>';
+                echo '<form method="post">';
+                echo '<input type="hidden" name="jegyTipus" value="' . $jegy['tipus'] . '">';
+                echo '<input type="hidden" name="ar" value="' . $jegy['ar'] . '">';
+                echo '<button type="submit" name="submit">Kosárba</button>';
+                echo '</form>';
+                echo '</td>';
+            }
         }
         echo '</tr>';
     }
@@ -90,9 +110,13 @@ if (isset($_POST['submit'])) {
     <tr>
         <th>Csoportos</th>
         <th>Ár</th>
-        <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) { ?>
-            <th>Kosár</th>
-        <?php } ?>
+        <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+            if ($_SESSION['username'] === "ADMIN") { ?>
+                <th>Törlés</th>
+            <?php } else { ?>
+                <th>Kosár</th>
+            <?php }
+        } ?>
     </tr>
     <?php
     // Csoportos jegyek típusainak és árainak listája
@@ -106,18 +130,27 @@ if (isset($_POST['submit'])) {
     );
 
     // Csoportos jegyek sorainak generálása
-    foreach ($csoportos_jegyek as $csoportos_jegy) {
+    foreach ($csoportos_jegyek as $index => $csoportos_jegy) {
         echo '<tr>';
         echo '<td>' . $csoportos_jegy['tipus'] . ':</td>';
         echo '<td>' . $csoportos_jegy['ar'] . ' Ft</td>';
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-            echo '<td>';
-            echo '<form method="post">';
-            echo '<input type="hidden" name="jegyTipus" value="' . $csoportos_jegy['tipus'] . '">';
-            echo '<input type="hidden" name="ar" value="' . $csoportos_jegy['ar'] . '">';
-            echo '<button type="submit" name="submit">Kosárba</button>';
-            echo '</form>';
-            echo '</td>';
+            if ($_SESSION['username'] === "ADMIN") {
+                echo '<td>';
+                echo '<form method="post">';
+                echo '<input type="hidden" name="delete" value="' . $index . '">';
+                echo '<button type="submit">Törlés</button>';
+                echo '</form>';
+                echo '</td>';
+            } else {
+                echo '<td>';
+                echo '<form method="post">';
+                echo '<input type="hidden" name="jegyTipus" value="' . $csoportos_jegy['tipus'] . '">';
+                echo '<input type="hidden" name="ar" value="' . $csoportos_jegy['ar'] . '">';
+                echo '<button type="submit" name="submit">Kosárba</button>';
+                echo '</form>';
+                echo '</td>';
+            }
         }
         echo '</tr>';
     }
