@@ -53,16 +53,16 @@ foreach ($users as $user) {
             <img src="../media/OIG3%20(1).jpg" alt="Profilkép" class="avatar">
             <div class="profile-info">
                 <label for="username">Felhasználónév:</label>
-                <input type="text" id="username" value="<?php echo $stored_username; ?>" disabled>
+                <input type="text" id="username" name="username" value="<?php echo $profile_username; ?>" disabled>
 
                 <label for="firstname">Keresztnév:</label>
-                <input type="text" id="firstname" value="<?php echo $profile_firstname; ?>" disabled>
+                <input type="text" id="firstname" name="firstname" value="<?php echo $profile_firstname; ?>" required>
 
                 <label for="lastname">Vezetéknév:</label>
-                <input type="text" id="lastname" value="<?php echo $profile_lastname; ?>" disabled>
+                <input type="text" id="lastname" name="lastname" value="<?php echo $profile_lastname; ?>" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" value="<?php echo $profile_email; ?>" disabled>
+                <input type="email" id="email" name="email" value="<?php echo $profile_email; ?>" required>
 
                 <input class="save-btn" value="Változások mentése">
                 <input type="submit" class="save-btn" value="Profil törlése">
