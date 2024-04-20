@@ -17,6 +17,8 @@ foreach ($users as $user) {
         $profile_email = $stored_email;
         break;
     }
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -77,10 +79,19 @@ foreach ($users as $user) {
                     echo "<td>{$jegy['tipus']}</td>";
                     echo "<td>{$jegy['ar']} Ft</td>";
                     echo "<td>{$jegy['mennyiseg']}</td>";
+                    // Gomb hozzáadása a jegyhez
+                    echo "<td>";
+                    echo "<form method='post' action='kosar.php'>";
+                    echo "<input type='hidden' name='tipus' value='{$jegy['tipus']}'>";
+                    echo "<input type='hidden' name='ar' value='{$jegy['ar']}'>";
+                    echo "<input type='hidden' name='mennyiseg' value='1'>"; // Alapértelmezett mennyiség
+                    echo "<button type='submit' name='add_to_cart'>Kosárba</button>";
+                    echo "</form>";
+                    echo "</td>";
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='3'>Nincsenek vásárolt jegyek</td></tr>";
+                echo "<tr><td colspan='4'>Nincsenek vásárolt jegyek</td></tr>";
             }
             ?>
         </table>

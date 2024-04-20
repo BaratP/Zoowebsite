@@ -78,6 +78,35 @@ if(isset($_POST['purchase'])) {
     exit();
 }
 
+
+// Ellenőrizzük, hogy létezik-e és nem üres-e a kosár tömb a session változók között
+if(!isset($_SESSION['kosar']) || empty($_SESSION['kosar'])) {
+    // Ha a kosár üres, inicializáljuk üres tömbbel
+    $_SESSION['kosar'] = array();
+}
+// Jegy hozzáadása a kosárhoz
+if(isset($_POST['add_to_cart'])) {
+    $tipus = $_POST['tipus'];
+    $ar = $_POST['ar'];
+    $mennyiseg = $_POST['mennyiseg'];
+
+    $uj_jegy = array('tipus' => $tipus, 'ar' => $ar, 'mennyiseg' => $mennyiseg);
+
+    // Ellenőrizzük, hogy van-e már ilyen típusú jegy a kosárban
+    $jegy_mezo = array_search($tipus, array_column($_SESSION['kosar'], 'tipus'));
+
+    if($jegy_mezo !== false) {
+        // Ha van már ilyen típusú jegy a kosárban, növeljük a mennyiséget
+        $_SESSION['kosar'][$jegy_mezo]['mennyiseg'] += $mennyiseg;
+    } else {
+        // Ellenkező esetben adjuk hozzá az új jegyet a kosárhoz
+        $_SESSION['kosar'][] = $uj_jegy;
+    }
+
+    header("Location: kosar.php");
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
