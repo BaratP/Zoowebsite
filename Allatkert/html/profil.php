@@ -4,15 +4,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: ../index.php");
     exit();
 }
-// Fájl beolvasása és felhasználó adatainak kinyerése
 $data_file = 'users.txt';
 $current_data = file_exists($data_file) ? file_get_contents($data_file) : '';
 $users = $current_data ? explode("\n", $current_data) : [];
 
-// Felhasználó adatok keresése
 foreach ($users as $user) {
     list($stored_username, $stored_email, $stored_password, $stored_firstname, $stored_lastname) = explode('|', $user);
-    echo $_SESSION['username'];
     if ($stored_username === $_SESSION['username']) {
         $profile_username = $stored_username;
         $profile_firstname = $stored_firstname;
@@ -73,26 +70,19 @@ foreach ($users as $user) {
     <section class="container">
         <h1>Eddig vásárolt jegyek</h1>
         <table>
-            <tr>
-                <th>Jegy Típusa</th>
-                <th>Ár</th>
-                <th>Mennyiség</th>
-            </tr>
-            <tr>
-                <td>Teljseárújegy</td>
-                <td>15000 Ft</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>Diákjegy</td>
-                <td>5000 Ft</td>
-                <td>4</td>
-            </tr>
-            <tr>
-                <td>CsoportosJegy</td>
-                <td>4500 Ft</td>
-                <td>3</td>
-            </tr>
+            <?php
+            if(isset($_SESSION['vasarlas']) && !empty($_SESSION['vasarlas'])) {
+                foreach($_SESSION['vasarlas'] as $jegy) {
+                    echo "<tr>";
+                    echo "<td>{$jegy['tipus']}</td>";
+                    echo "<td>{$jegy['ar']} Ft</td>";
+                    echo "<td>{$jegy['mennyiseg']}</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>Nincsenek vásárolt jegyek</td></tr>";
+            }
+            ?>
         </table>
     </section>
 </main>
