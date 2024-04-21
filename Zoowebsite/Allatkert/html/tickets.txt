@@ -1,0 +1,50 @@
+[
+    {
+        "tipus": "Gyermek (3 - 18 \u00e9v)",
+        "ar": "318"
+    },
+    {
+        "tipus": "Gyermek (3 \u00e9ves kor alatt)",
+        "ar": 200
+    },
+    {
+        "tipus": "Nyugd\u00edjas",
+        "ar": 1800
+    },
+    {
+        "tipus": "Di\u00e1k nappai tagozat (18 - 25 \u00e9v)",
+        "ar": 2000
+    },
+    {
+        "tipus": "Kedvezm\u00e9nyes jegy fogyat\u00e9kkal \u00e9l\u0151k, szoci\u00e1lis otthonok lak\u00f3i r\u00e9sz\u00e9re, +1 f\u0151 k\u00eds\u00e9r\u0151 jegye is",
+        "ar": 500
+    },
+    {
+        "tipus": "Csal\u00e1di jegy (2 sz\u00fcl\u0151 + 2 gyermek)",
+        "ar": 7000
+    },
+    {
+        "tipus": "Csal\u00e1di jegy (2 sz\u00fcl\u0151 + 1 gyermek, 1 sz\u00fcl\u0151 + 2 gyermek)",
+        "ar": 5000
+    },
+    {
+        "tipus": "Csal\u00e1di jegy (1 sz\u00fcl\u0151 + 3 gyermek)",
+        "ar": 7000
+    },
+    {
+        "tipus": "Csal\u00e1di jegy (2 nagysz\u00fcl\u0151 + 2 gyermek)",
+        "ar": 5000
+    },
+    {
+        "tipus": "Csoportos feln\u0151tt kedvezm\u00e9nyes jegy (10 f\u0151 felett)",
+        "ar": 2000
+    },
+    {
+        "tipus": "Csoportos nyugd\u00edjas kedvezm\u00e9nyes jegy (10 f\u0151 felett)",
+        "ar": 1400
+    },
+    {
+        "tipus": "10",
+        "ar": "10"
+    }
+]
