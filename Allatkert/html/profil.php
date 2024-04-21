@@ -4,15 +4,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: ../index.php");
     exit();
 }
-// Fájl beolvasása és felhasználó adatainak kinyerése
 $data_file = 'users.txt';
 $current_data = file_exists($data_file) ? file_get_contents($data_file) : '';
 $users = $current_data ? explode("\n", $current_data) : [];
 
-// Felhasználó adatok keresése
 foreach ($users as $user) {
     list($stored_username, $stored_email, $stored_password, $stored_firstname, $stored_lastname) = explode('|', $user);
-    echo $_SESSION['username'];
     if ($stored_username === $_SESSION['username']) {
         $profile_username = $stored_username;
         $profile_firstname = $stored_firstname;
@@ -20,6 +17,8 @@ foreach ($users as $user) {
         $profile_email = $stored_email;
         break;
     }
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -54,16 +53,16 @@ foreach ($users as $user) {
             <img src="../media/OIG3%20(1).jpg" alt="Profilkép" class="avatar">
             <div class="profile-info">
                 <label for="username">Felhasználónév:</label>
-                <input type="text" id="username" value="<?php echo $stored_username; ?>" disabled>
+                <input type="text" id="username" name="username" value="<?php echo $profile_username; ?>" disabled>
 
                 <label for="firstname">Keresztnév:</label>
-                <input type="text" id="firstname" value="<?php echo $profile_firstname; ?>" disabled>
+                <input type="text" id="firstname" name="firstname" value="<?php echo $profile_firstname; ?>" required>
 
                 <label for="lastname">Vezetéknév:</label>
-                <input type="text" id="lastname" value="<?php echo $profile_lastname; ?>" disabled>
+                <input type="text" id="lastname" name="lastname" value="<?php echo $profile_lastname; ?>" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" value="<?php echo $profile_email; ?>" disabled>
+                <input type="email" id="email" name="email" value="<?php echo $profile_email; ?>" required>
 
                 <input class="save-btn" value="Változások mentése">
                 <input type="submit" class="save-btn" value="Profil törlése">
@@ -73,26 +72,28 @@ foreach ($users as $user) {
     <section class="container">
         <h1>Eddig vásárolt jegyek</h1>
         <table>
-            <tr>
-                <th>Jegy Típusa</th>
-                <th>Ár</th>
-                <th>Mennyiség</th>
-            </tr>
-            <tr>
-                <td>Teljseárújegy</td>
-                <td>15000 Ft</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>Diákjegy</td>
-                <td>5000 Ft</td>
-                <td>4</td>
-            </tr>
-            <tr>
-                <td>CsoportosJegy</td>
-                <td>4500 Ft</td>
-                <td>3</td>
-            </tr>
+            <?php
+            if(isset($_SESSION['vasarlas']) && !empty($_SESSION['vasarlas'])) {
+                foreach($_SESSION['vasarlas'] as $jegy) {
+                    echo "<tr>";
+                    echo "<td>{$jegy['tipus']}</td>";
+                    echo "<td>{$jegy['ar']} Ft</td>";
+                    echo "<td>{$jegy['mennyiseg']}</td>";
+                    // Gomb hozzáadása a jegyhez
+                    echo "<td>";
+                    echo "<form method='post' action='kosar.php'>";
+                    echo "<input type='hidden' name='tipus' value='{$jegy['tipus']}'>";
+                    echo "<input type='hidden' name='ar' value='{$jegy['ar']}'>";
+                    echo "<input type='hidden' name='mennyiseg' value='1'>"; // Alapértelmezett mennyiség
+                    echo "<button type='submit' name='add_to_cart'>Kosárba</button>";
+                    echo "</form>";
+                    echo "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='4'>Nincsenek vásárolt jegyek</td></tr>";
+            }
+            ?>
         </table>
     </section>
 </main>
