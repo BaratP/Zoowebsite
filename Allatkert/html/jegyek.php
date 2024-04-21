@@ -18,12 +18,12 @@ function modifyPrice($index, $newPrice) {
 if (isset($_POST['submit'])) {
     addToCart($_POST['jegyTipus'], $_POST['ar']);
 }
-
+//Törlés gomb ADMIN//
 if (isset($_POST['delete']) && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['username'] === "ADMIN") {
     $index = $_POST['delete'];
     deleteFromCart($index);
 }
-
+//MODOSITAS ADMIN//
 if (isset($_POST['modify']) && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['username'] === "ADMIN") {
     $index = $_POST['modify'];
     $newPrice = $_POST['newPrice'];
@@ -69,6 +69,7 @@ if (isset($_POST['modify']) && isset($_SESSION['loggedin']) && $_SESSION['logged
     <tr>
         <th>Egyéni</th>
         <th>Ár</th>
+        //HA ADMIN AKKOR MODOSITAS+TORLES//
         <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             if ($_SESSION['username'] === "ADMIN") { ?>
                 <th>Módosítás</th>
@@ -94,17 +95,20 @@ if (isset($_POST['modify']) && isset($_SESSION['loggedin']) && $_SESSION['logged
         echo '<tr>';
         echo '<td>' . $jegy['tipus'] . ':</td>';
         echo '<td>' . $jegy['ar'] . ' Ft</td>';
+        //ADMIN FUNKCIÓ
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             if ($_SESSION['username'] === "ADMIN") {
                 echo '<td>';
                 echo '<form method="post">';
                 echo '<input type="hidden" name="modify" value="' . $index . '">';
+                //UJ AR
                 echo '<input type="number" name="newPrice" placeholder="Új ár" required>';
                 echo '<button type="submit">Módosítás</button>';
                 echo '</form>';
                 echo '</td>';
                 echo '<td>';
                 echo '<form method="post">';
+                //TORLES
                 echo '<input type="hidden" name="delete" value="' . $index . '">';
                 echo '<button type="submit">Törlés</button>';
                 echo '</form>';
@@ -130,6 +134,7 @@ if (isset($_POST['modify']) && isset($_SESSION['loggedin']) && $_SESSION['logged
     <tr>
         <th>Csoportos</th>
         <th>Ár</th>
+        //ADMIN FUNKCIÓ
         <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             if ($_SESSION['username'] === "ADMIN") { ?>
                 <th>Módosítás</th>
@@ -155,16 +160,19 @@ if (isset($_POST['modify']) && isset($_SESSION['loggedin']) && $_SESSION['logged
         echo '<tr>';
         echo '<td>' . $csoportos_jegy['tipus'] . ':</td>';
         echo '<td>' . $csoportos_jegy['ar'] . ' Ft</td>';
+        //CSOPORTOS JEGYEK TÖRLÉS+MODOSITAS
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             if ($_SESSION['username'] === "ADMIN") {
                 echo '<td>';
                 echo '<form method="post">';
                 echo '<input type="hidden" name="modify" value="' . $index . '">';
+                //MODOSITAS
                 echo '<input type="number" name="newPrice" placeholder="Új ár" required>';
                 echo '<button type="submit">Módosítás</button>';
                 echo '</form>';
                 echo '</td>';
                 echo '<td>';
+                //TORLES
                 echo '<form method="post">';
                 echo '<input type="hidden" name="delete" value="' . $index . '">';
                 echo '<button type="submit">Törlés</button>';
@@ -184,6 +192,7 @@ if (isset($_POST['modify']) && isset($_SESSION['loggedin']) && $_SESSION['logged
     }
     ?>
 </table>
+//ADMIN UJ LISTAELEM HOZZAADASA
 <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     if ($_SESSION['username'] === "ADMIN") { ?>
         <form method="post">
