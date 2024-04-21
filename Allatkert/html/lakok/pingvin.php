@@ -29,7 +29,7 @@
     <div class="split">
         <div class="flow">
             <div><p>Bobber (hód/vombat)</p><a href="bober.php"><img src="../../media/lakok/elsoKep.png" alt="bober"></a></div>
-            <div><p>Pingvin (indiai futó kacsa)</p><a href="pingvin.html"><img src="/media/lakok/negyedikKep.png" alt="pingvin" id="aktualiskep"></a></div>
+            <div><p>Pingvin (indiai futó kacsa)</p><a href="pingvin.php"><img src="../../media/lakok/negyedikKep.png" alt="pingvin" id="aktualiskep"></a></div>
         </div>
     </div>
     <div class="split">
